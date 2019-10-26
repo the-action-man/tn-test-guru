@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_10_25_185952) do
     t.boolean "correct", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "categories", force: :cascade do |t|
