@@ -22,8 +22,10 @@ Test.create([
               { name: 'test_01', level: 0, user_id: 1, category_id: 1 },
               { name: 'test_01', level: 1, user_id: 1, category_id: 1 },
               { name: 'test_01', level: 2, user_id: 1, category_id: 1 },
-              { name: 'test_02', level: 1, user_id: 2, category_id: 2 },
-              { name: 'test_03', level: 0, user_id: 3, category_id: 3 }
+              { name: 'test_02', level: 2, user_id: 1, category_id: 1 },
+              { name: 'test_03', level: 2, user_id: 1, category_id: 1 },
+              { name: 'test_04', level: 1, user_id: 2, category_id: 2 },
+              { name: 'test_05', level: 0, user_id: 3, category_id: 3 }
             ])
 Question.create([
                   { text: 'question_01', test_id: 1 },
