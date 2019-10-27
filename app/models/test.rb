@@ -1,6 +1,8 @@
 class Test < ApplicationRecord
   def self.by_category(category)
-    id = Category.select(:id).where(name: category)
-    self.select(:name).where(category_id: id).order(name: :desc)
+    self.select(:name)
+        .joins('INNER JOIN categories ON tests.category_id = categories.id')
+        .where(categories: { name: category })
+        .order(name: :desc)
   end
 end

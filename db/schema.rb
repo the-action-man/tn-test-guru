@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_10_25_185952) do
     t.datetime "updated_at", null: false
     t.integer "level", default: 0
     t.integer "user_id", null: false
-    t.integer "category_id"
+    t.integer "category_id", null: false
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["user_id"], name: "index_tests_on_user_id"
   end
