@@ -8,6 +8,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# rubocop:disable all
+
 users = User.create!([
                        { name: 'user_01' },
                        { name: 'user_02' },
@@ -19,21 +21,29 @@ categories = Category.create!([
                                 { name: 'category_03' }
                               ])
 tests = Test.create!([
-                       { name: 'test_01', level: 0, user_id: users[0].id, \
+                       { name: 'test_01 l_0', level: 0, \
                          category_id: categories[0].id },
-                       { name: 'test_01', level: 1, user_id: users[0].id, \
+                       { name: 'test_01 l_1', level: 1, \
                          category_id: categories[0].id },
-                       { name: 'test_01', level: 2, user_id: users[0].id, \
+                       { name: 'test_01 l_2', level: 2, \
                          category_id: categories[0].id },
-                       { name: 'test_02', level: 2, user_id: users[0].id, \
+                       { name: 'test_02 l_2', level: 2, \
                          category_id: categories[0].id },
-                       { name: 'test_03', level: 2, user_id: users[0].id, \
+                       { name: 'test_03 l_2', level: 2, \
                          category_id: categories[0].id },
-                       { name: 'test_04', level: 1, user_id: users[1].id, \
+                       { name: 'test_04 l_1', level: 1, \
                          category_id: categories[1].id },
-                       { name: 'test_05', level: 0, user_id: users[2].id, \
+                       { name: 'test_05 l_0', level: 0, \
                          category_id: categories[2].id }
                      ])
+results = Results.create!([
+                            { user_id: users[0].id, test_id: tests[0].id },
+                            { user_id: users[0].id, test_id: tests[1].id },
+                            { user_id: users[0].id, test_id: tests[2].id },
+                            { user_id: users[0].id, test_id: tests[3].id },
+                            { user_id: users[1].id, test_id: tests[4].id },
+                            { user_id: users[2].id, test_id: tests[5].id }
+                           ])
 questions = Question.create!([
                                { text: 'question_01', test_id: tests[0].id },
                                { text: 'question_02', test_id: tests[0].id },
@@ -83,3 +93,4 @@ answers = Answer.create!([
                            { text: 'a_01 of q_03 true', \
                              question_id: questions[2].id, correct: true }
                          ])
+# rubocop:enable all
