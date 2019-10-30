@@ -36,7 +36,7 @@ tests = Test.create!([
                        { name: 'test_05 l_0', level: 0, \
                          category_id: categories[2].id }
                      ])
-results = Results.create!([
+tu = TestsUser.create!([
                             { user_id: users[0].id, test_id: tests[0].id },
                             { user_id: users[0].id, test_id: tests[1].id },
                             { user_id: users[0].id, test_id: tests[2].id },
