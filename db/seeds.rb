@@ -22,19 +22,19 @@ categories = Category.create!([
                               ])
 tests = Test.create!([
                        { name: 'test_01 l_0', level: 0, \
-                         category_id: categories[0].id },
-                       { name: 'test_01 l_1', level: 1, \
-                         category_id: categories[0].id },
-                       { name: 'test_01 l_2', level: 2, \
-                         category_id: categories[0].id },
-                       { name: 'test_02 l_2', level: 2, \
-                         category_id: categories[0].id },
-                       { name: 'test_03 l_2', level: 2, \
-                         category_id: categories[0].id },
-                       { name: 'test_04 l_1', level: 1, \
-                         category_id: categories[1].id },
-                       { name: 'test_05 l_0', level: 0, \
-                         category_id: categories[2].id }
+                         category_id: categories[0].id, author_id: users[0].id },
+                     { name: 'test_01 l_1', level: 1, \
+                       category_id: categories[0].id, author_id: users[0].id },
+                     { name: 'test_01 l_2', level: 2, \
+                       category_id: categories[0].id, author_id: users[0].id },
+                     { name: 'test_02 l_2', level: 2, \
+                       category_id: categories[0].id, author_id: users[0].id },
+                     { name: 'test_03 l_2', level: 2, \
+                       category_id: categories[0].id, author_id: users[0].id },
+                     { name: 'test_04 l_1', level: 1, \
+                       category_id: categories[1].id, author_id: users[0].id },
+                     { name: 'test_05 l_0', level: 0, \
+                       category_id: categories[2].id, author_id: users[1].id }
                      ])
 tu = TestsUser.create!([
                             { user_id: users[0].id, test_id: tests[0].id },
