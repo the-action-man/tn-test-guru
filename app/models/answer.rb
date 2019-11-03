@@ -6,6 +6,8 @@ class Answer < ApplicationRecord
   validates :body, presence: true
   validate :validate_answers_per_question
 
+  scope :correct_answer, ->(question) { where(question: question, correct: true) }
+
   private
 
   def validate_answers_per_question
