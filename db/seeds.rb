@@ -21,8 +21,6 @@ categories = Category.create!([
                                 { title: 'category_03' }
                               ])
 tests = Test.create!([
-                       { title: 'test_01 l_0', level: 0, \
-                         category: categories[0], author: users[0] },
                        { title: 'test_01 l_1', level: 1, \
                          category: categories[0], author: users[0] },
                        { title: 'test_01 l_2', level: 2, \
