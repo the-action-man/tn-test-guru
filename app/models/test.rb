@@ -17,7 +17,7 @@ class Test < ApplicationRecord
   scope :easy_level, -> { where(level: EASY_LEVEL) }
   scope :middle_level, -> { where(level: MIDDLE_LEVEL) }
   scope :upper_level, -> { where(level: UPPER_LEVEL) }
-  scope :titles_by_category, \
+  scope :titles_by_category,
         (lambda do |category|
           select(:title)
             .joins(:category)

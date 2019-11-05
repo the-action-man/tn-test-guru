@@ -12,8 +12,10 @@ class Answer < ApplicationRecord
   private
 
   def validate_answers_per_question
-    answers_quantity = Answer.where(question_id: question).count
-    errors.add(:answers, "can't be more then #{MAX_ANSWERS_QUANTITY} per question") \
-                                    if answers_quantity >= MAX_ANSWERS_QUANTITY
+    answers_quantity = question.answers.count
+    return if answers_quantity >= MAX_ANSWERS_QUANTITY
+
+    errors.add(:answers,
+               "can't be more then #{MAX_ANSWERS_QUANTITY} per question")
   end
 end
