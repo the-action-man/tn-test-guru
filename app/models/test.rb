@@ -14,9 +14,10 @@ class Test < ApplicationRecord
                                   message: "should present one per level" }
   validates :level, numericality: { only_integer: true, greater_than: 0 }
 
-  scope :easy_level, -> { where(level: EASY_LEVEL) }
-  scope :middle_level, -> { where(level: MIDDLE_LEVEL) }
-  scope :upper_level, -> { where(level: UPPER_LEVEL) }
+  scope :with_level, ->(level) { where(level: level) }
+  scope :easy_level, -> { with_level(EASY_LEVEL) }
+  scope :middle_level, -> { with_level(MIDDLE_LEVEL) }
+  scope :upper_level, -> { with_level(UPPER_LEVEL) }
   scope :titles_by_category,
         (lambda do |category|
           select(:title)
