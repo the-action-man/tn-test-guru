@@ -4,7 +4,7 @@ class Answer < ApplicationRecord
   belongs_to :question
 
   validates :body, presence: true
-  validate :validate_answers_per_question
+  validate :validate_answers_per_question, on: :create
 
   scope :correct_answer,
         ->(question) { where(question: question, correct: true) }
