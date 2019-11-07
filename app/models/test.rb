@@ -1,4 +1,5 @@
 class Test < ApplicationRecord
+  MINIMAL_LEVEL = 1
   EASY_LEVEL = 0..1
   MIDDLE_LEVEL = 2..4
   UPPER_LEVEL = 5..Float::INFINITY
@@ -9,10 +10,10 @@ class Test < ApplicationRecord
   has_many :tests_users, dependent: :destroy
   has_many :users, through: :tests_users
 
-  validates :title, presence: true, \
-                    uniqueness: { scope: :level, \
-                                  message: "should present one per level" }
-  validates :level, numericality: { only_integer: true, greater_than: 0 }
+  validates :title, presence: true, uniqueness: { scope: :level,
+                                                  message: "should present one per level" }
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: MINIMAL_LEVEL,
+                                    message: "should be greater than or equal to #{MINIMAL_LEVEL}"}
 
   scope :with_level, ->(level) { where(level: level) }
   scope :easy_level, -> { with_level(EASY_LEVEL) }
