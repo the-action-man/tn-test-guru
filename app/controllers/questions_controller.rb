@@ -5,7 +5,8 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    render json: Question.where(id: params[:id])
+    # render json: Question.where(id: params[:id])
+    render inline: 'Question: <%= Question.where(id: params[:id]).to_a %>'
   end
 
   def new; end
