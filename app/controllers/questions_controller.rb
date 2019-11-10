@@ -16,6 +16,11 @@ class QuestionsController < ApplicationController
                   " '#{Test.select(:title).where(id: params[:test_id]).pluck(:title)[0]}' \n\n #{q.inspect}"
   end
 
+  def destroy
+    allowed_params = params.permit(:id)
+    Question.destroy(allowed_params[:id])
+  end
+
   private
 
   def question_params
