@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :find_test
+  before_action :find_test, only: %i[index new create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -8,16 +8,18 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    q = Question.find(params[:id]).body
-    render plain: "Question: #{q}"
+    @question = Question.find(params[:id])
   end
 
   def new; end
 
   def create
-    q = Question.create!(question_params)
-    render plain: "'#{params[:question][:body]}' question is created for test"\
-                  " '#{Test.select(:title).where(id: params[:test_id]).pluck(:title)[0]}' \n\n #{q.inspect}"
+    question = Question.new
+    question.body = params.require(:question).permit(:body)[:body]
+    question.test = @test
+    question.save!
+    render plain: "'#{question.body}' question is created for test '#{@test.title}'" \
+                  "\n\nQuestion inspect: #{question.inspect}"
   end
 
   def destroy
@@ -26,10 +28,6 @@ class QuestionsController < ApplicationController
   end
 
   private
-
-  def question_params
-    params.require(:question).permit(:body, :test_id)
-  end
 
   def find_test
     @test = Test.find(params[:test_id])
