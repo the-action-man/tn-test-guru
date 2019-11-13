@@ -23,8 +23,8 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    allowed_params = params.permit(:id)
-    Question.destroy(allowed_params[:id])
+    question = Question.find(params.permit(:id))
+    question.destroy
   end
 
   private
