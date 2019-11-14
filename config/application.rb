@@ -15,7 +15,7 @@ module TestGuru
     # Разрешенные локали, доступные приложению
     I18n.available_locales = %i[en ru]
     # устанавливаем локаль по умолчанию на что-либо другое, чем :en
-    I18n.default_locale = :ru
+    I18n.default_locale = :en
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
