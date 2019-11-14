@@ -13,7 +13,8 @@ class QuestionsController < ApplicationController
   def new; end
 
   def create
-    question = Question.create!(question_params)
+    question = @test.questions.new(question_params)
+    question.save!
     render plain: "'#{question.body}' question is created for test '#{@test.title}'" \
                   "\n\nQuestion inspect: #{question.inspect}"
   end
@@ -25,8 +26,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    permitted_params = params.require(:question).permit(:body)
-    permitted_params.merge(test_id: params[:test_id])
+    params.require(:question).permit(:body)
   end
 
   def find_test
