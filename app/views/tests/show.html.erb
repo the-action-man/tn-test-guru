@@ -1,0 +1,15 @@
+<h1>Test</h1>
+<h2>Title: <%= @test.title %></h2>
+
+<table border="1">
+  <tr>
+    <td>Question</td>
+    <td>Action</td>
+  </tr>
+  <%= render @questions %>
+</table>
+
+<br>
+<br>
+
+<%= link_to 'back', tests_path %>
