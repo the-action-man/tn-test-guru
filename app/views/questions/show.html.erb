@@ -1,4 +1,10 @@
 <h1>Question</h1>
 <br>
-<p><%= @question.attributes %></p>
+<p>Body: <%= @question.body %></p>
 <br>
+<p>It belongs to test "<%= @question.test.title %>"</p>
+<br>
+<br>
+<%= link_to 'back', test_path(@question.test) %>
+|
+<%= link_to 'edit', edit_question_path(@question) %>
