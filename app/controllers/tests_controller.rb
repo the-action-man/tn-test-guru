@@ -1,4 +1,6 @@
 class TestsController < ApplicationController
 
-  def index; end
+  def index
+    @tests = Test.all
+  end
 end
