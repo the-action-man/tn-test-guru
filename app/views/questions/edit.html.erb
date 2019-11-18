@@ -1,3 +1,5 @@
-<h1><%= question_header('Edit') %></h1>
+<h1><%= question_header %></h1>
 
-<%= render 'form', test: @test, question: @question %>
+<%= render 'form', model: @question %>
+
+<%= link_to 'Back', question_path(@question) %>

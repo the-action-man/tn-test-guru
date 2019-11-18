@@ -1,28 +1,29 @@
 class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show edit update destroy]
-  before_action :find_test, only: %i[index new create edit]
+  before_action :find_test, only: %i[new create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    render json: @test.questions
-  end
-
   def show; end
 
-  def new; end
+  def new
+    @question = @test.questions.new
+  end
 
   def create
-    question = @test.questions.new(question_params)
-    question.save!
-    redirect_to test_path(@test)
+    @question = @test.questions.new(question_params)
+    if @question.save!
+      redirect_to question_path(@question)
+    else
+      render :new
+    end
   end
 
   def edit; end
 
   def update
     if @question.update(question_params)
-      redirect_to @question.test
+      redirect_to question_path(@question)
     else
       render :edit
     end
@@ -40,11 +41,7 @@ class QuestionsController < ApplicationController
   end
 
   def find_test
-    if params[:test_id].nil?
-      @test = @question.test
-    else
-      @test = Test.find(params[:test_id])
-    end
+    @test = Test.find(params[:test_id])
   end
 
   def find_question
