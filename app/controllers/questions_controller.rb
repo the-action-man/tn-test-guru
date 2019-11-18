@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = @test.questions.new(question_params)
-    if @question.save!
+    if @question.save
       redirect_to question_path(@question)
     else
       render :new
