@@ -1,0 +1,26 @@
+<h1>Test</h1>
+<h2>Title: <%= @test.title %></h2>
+<p><b>Level:</b> <%= @test.level %></p>
+<p><b>Category:</b> <%= @test.category.title %></p>
+<p><b>Author:</b> <%= @test.author.email %></p>
+<br>
+<%= link_to 'Edit test', edit_test_path(@test) %>
+<br>
+<hr align="left" width="600" size="4" color="#ff9900" />
+<br>
+<table border="1">
+  <tr align="center">
+    <td>Question</td>
+    <td colspan="3">Action</td>
+  </tr>
+  <%= render @test.questions %>
+</table>
+
+<br>
+<br>
+<%= link_to 'Add question', new_test_question_path(@test) %>
+
+<br>
+<br>
+
+<%= link_to 'Back', tests_path %>
