@@ -9,10 +9,4 @@ module QuestionsHelper
     end
     "#{action_name} question for test '#{test_title}'"
   end
-
-  def question_model(model)
-    return model[1] if model.is_a?(Array)
-
-    model
-  end
 end
