@@ -29,7 +29,7 @@ tests = Test
     { title: 'test_04 l_1', level: 1, category: categories[1], author: users[0] },
     { title: 'test_05 l_0', level: 1, category: categories[2], author: users[1] }
   ])
-tu = TestsUser
+test_passage = TestPassage
   .create!([
     { user: users[0], test: tests[0] },
     { user: users[0], test: tests[1] },
