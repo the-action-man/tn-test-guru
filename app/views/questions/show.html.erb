@@ -5,6 +5,19 @@
 <p>It belongs to test "<%= @question.test.title %>"</p>
 <br>
 <br>
+<h2>Answers</h2>
+<table border="1">
+  <tr>
+    <th>Title</th>
+    <th>Correct</th>
+    <th colspan="2">Actions</th>
+  </tr>
+  <%= render @question.answers %>
+</table>
+<br>
+<%= link_to 'Add answer', new_question_answer_path(@question.test) %>
+<br>
+<br>
 <%= link_to 'Back', test_path(@question.test) %>
 |
 <%= link_to 'Edit', edit_question_path(@question) %>

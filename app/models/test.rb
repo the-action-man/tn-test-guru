@@ -7,8 +7,8 @@ class Test < ApplicationRecord
   belongs_to :category, optional: true
   belongs_to :author, class_name: "User"
   has_many :questions, dependent: :destroy
-  has_many :tests_users, dependent: :destroy
-  has_many :users, through: :tests_users
+  has_many :test_passages, dependent: :destroy
+  has_many :users, through: :test_passages
 
   validates :title, presence: true, uniqueness: { scope: :level,
                                                   message: "should present one per level" }
