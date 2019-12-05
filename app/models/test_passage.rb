@@ -5,8 +5,7 @@ class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_first_question, on: :create
-  before_update :before_update_next_question
+  before_validation :set_current_question
 
   def completed?
     current_question.nil?
@@ -31,21 +30,28 @@ class TestPassage < ApplicationRecord
 
   private
 
-  def before_validation_set_first_question
-    self.current_question = test.questions.first if test.present? # if added to avoid err in IRB code
+  def set_current_question
+    return unless test.present? # added to avoid err in IRB code
+
+    self.current_question = if current_question.nil?
+                              test.questions.first
+                            else
+                              next_question
+                            end
+  end
+
+  def next_question
+    test.questions.order(:id).where('id > ?', current_question.id).first
   end
 
   def correct_answer?(answer_ids)
+    return false if answer_ids.nil?
+
     correct_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
 
   def correct_answers
     current_question.answers.correct
-  end
-
-  def before_update_next_question
-    next_question = test.questions.order(:id).where('id > ?', current_question.id).first
-    self.current_question = next_question
   end
 
   def calc_percent_correct_questions
