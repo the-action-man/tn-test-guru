@@ -9,7 +9,7 @@ module TestPassagesHelper
     "#{prefix} #{test_passage.correct_percent}% question are correct."
   end
 
-  def result_message_color(test_passage)
-    test_passage.passed? ? 'green' : 'red'
+  def result_message_class(test_passage)
+    "test_passage #{test_passage.passed? ? 'passed' : ' failed'}"
   end
 end
