@@ -1,4 +1,6 @@
 class TestPassage < ApplicationRecord
+  MIN_PERCENT_TO_BE_PASSED = 85
+
   belongs_to :test
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -13,6 +15,18 @@ class TestPassage < ApplicationRecord
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
+  end
+
+  def total_questions
+    self.test.questions.size
+  end
+
+  def passed?
+    correct_percent >= MIN_PERCENT_TO_BE_PASSED
+  end
+
+  def correct_percent
+    @correct_percent ||= calc_percent_correct_questions
   end
 
   private
@@ -32,5 +46,9 @@ class TestPassage < ApplicationRecord
   def before_update_next_question
     next_question = test.questions.order(:id).where('id > ?', current_question.id).first
     self.current_question = next_question
+  end
+
+  def calc_percent_correct_questions
+    correct_questions * 100 / total_questions
   end
 end

@@ -1,1 +1,5 @@
 <h>'<%= @test_passage.test.title %>' was completed!</h>
+
+<p style="color:<%= result_message_color(@test_passage) %>">Result: <%= result_message(@test_passage) %></p>
+
+<%= link_to 'Back to list of tests', tests_path %>
