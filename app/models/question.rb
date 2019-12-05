@@ -4,4 +4,8 @@ class Question < ApplicationRecord
   has_many :test_passages
 
   validates :body, presence: true
+
+  def number
+    test.questions.to_a.index(self) + 1
+  end
 end
