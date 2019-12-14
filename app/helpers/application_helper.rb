@@ -7,19 +7,23 @@ module ApplicationHelper
     "https://github.com/#{author}/#{repo}"
   end
 
-  def flash_message
-    if flash[:notice]
-      key = :notice
-      class_name = 'notice'
-    elsif flash[:success]
-      key = :success
-      class_name = 'success'
-    elsif flash[:alert]
-      key = :alert
-      class_name = 'alert'
+  def flash_message_2
+    case flash.keys[0]
+    when 'notice'
+      flash_type = 'notice'
+    when 'success'
+      flash_type = 'success'
+    when 'alert'
+      flash_type = 'alert'
     else
       return
     end
-    content_tag :p, flash[key], class: "flash #{class_name}"
+    content_tag :p, flash[flash_type], class: "flash #{flash_type}"
+  end
+
+  def flash_message
+    flash_type = flash.keys[0] || return
+
+    content_tag :p, flash[flash_type], class: "flash #{flash_type}"
   end
 end
