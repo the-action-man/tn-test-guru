@@ -1,4 +1,6 @@
 module ApplicationHelper
+  FLASH_MESSAGES_KEYS = %i[success notice alert].freeze
+
   def current_year
     Time.current.year
   end

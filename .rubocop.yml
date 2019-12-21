@@ -8,3 +8,17 @@ Metrics/LineLength:
   # If you want the rule not to apply to a specific folder/file
   Exclude:
     - 'db/schema.rb'
+
+
+#I would like to disable a set of cops, like Style cops in my case.
+#Style/*:
+#  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false

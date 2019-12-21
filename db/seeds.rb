@@ -11,9 +11,9 @@
 # rubocop:disable all
 
 users = User.create!([
-                       { email: 'u_01@email.org' },
-                       { email: 'u_02@email.org' },
-                       { email: 'u_03@email.org' }
+                       { email: 'u_01@email.org', password_digest: 'Aa123456' },
+                       { email: 'u_02@email.org', password_digest: 'Aa123456' },
+                       { email: 'u_03@email.org', password_digest: 'Aa123456' }
                      ])
 categories = Category.create!([
                                 { title: 'category_01' },
