@@ -8,12 +8,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# rubocop:disable all
+password = '123456'
 
 users = User.create!([
-                       { email: 'u_01@email.org', password_digest: 'Aa123456' },
-                       { email: 'u_02@email.org', password_digest: 'Aa123456' },
-                       { email: 'u_03@email.org', password_digest: 'Aa123456' }
+                       { email: 'u_01@email.org', password: password },
+                       { email: 'u_02@email.org', password: password },
+                       { email: 'u_03@email.org', password: password }
                      ])
 categories = Category.create!([
                                 { title: 'category_01' },
@@ -63,4 +63,3 @@ answers = Answer
     { body: 'a_01 of q_03', question: questions[2], correct: false },
     { body: 'a_01 of q_03 true', question: questions[2], correct: true }
   ])
-# rubocop:enable all

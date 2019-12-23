@@ -1,19 +1,19 @@
 <table class="nav">
   <tr>
     <th><a href="<%= root_path %>">Test Guru</a></th>
-    <% if logged_in? %>
+    <% if user_signed_in? %>
         <th>
           Welcome, <b><%= current_user.email %></b> Guru
         </th>
         <th>
-          <%= button_to 'Logout', logout_path, method: :delete %>
+          <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
         </th>
     <% else %>
         <th>
-          <%= link_to 'Login', login_path %>
+          <%= link_to 'Login', new_user_session_path %>
         </th>
         <th>
-          <%= link_to 'Signup', signup_path %>
+          <%= link_to 'Signup', new_user_registration_path %>
         </th>
     <% end %>
   </tr>
