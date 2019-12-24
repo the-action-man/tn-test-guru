@@ -13,12 +13,12 @@
     <td>Question</td>
     <td colspan="3">Action</td>
   </tr>
-  <%= render partial: 'questions/question', collection: @test.questions %>
+  <%= render partial: 'admin/questions/question', collection: @test.questions %>
 </table>
 
 <br>
 <br>
-<%= link_to 'Add question', new_test_question_path(@test) %>
+<%= link_to 'Add question', new_admin_test_question_path(@test) %>
 
 <br>
 <br>
