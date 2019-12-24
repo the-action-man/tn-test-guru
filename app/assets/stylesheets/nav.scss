@@ -1,4 +1,10 @@
-.nav {
+.nav.user {
   float: right;
-  width: 30%
+  width: 30%;
+}
+
+.nav.nav-admin {
+  float: right;
+  width: 30%;
+  background-color: #4293e6;
 }

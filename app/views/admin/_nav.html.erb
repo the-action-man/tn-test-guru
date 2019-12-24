@@ -1,9 +1,9 @@
-<table class="nav user">
+<table class="nav nav-admin">
   <tr>
     <th><a href="<%= root_path %>">Test Guru</a></th>
     <% if user_signed_in? %>
         <th>
-          Welcome, <b><%= current_user.email %></b> Guru
+          Welcome, <b><%= current_user.email %></b> Admin
         </th>
         <th>
           <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
