@@ -4,7 +4,7 @@
 <p><b>Category:</b> <%= @test.category.title %></p>
 <p><b>Author:</b> <%= @test.author.email %></p>
 <br>
-<%= link_to 'Edit test', edit_test_path(@test) %>
+<%= link_to 'Edit test', edit_admin_test_path(@test) %>
 <br>
 <hr align="left" width="600" size="4" color="#ff9900" />
 <br>
@@ -13,14 +13,14 @@
     <td>Question</td>
     <td colspan="3">Action</td>
   </tr>
-  <%= render @test.questions %>
+  <%= render partial: 'admin/questions/question', collection: @test.questions %>
 </table>
 
 <br>
 <br>
-<%= link_to 'Add question', new_test_question_path(@test) %>
+<%= link_to 'Add question', new_admin_test_question_path(@test) %>
 
 <br>
 <br>
 
-<%= link_to 'Back', tests_path %>
+<%= link_to 'Back', admin_tests_path %>

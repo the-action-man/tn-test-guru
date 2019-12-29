@@ -1,15 +1,15 @@
-require 'digest/sha1'
-
 class User < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
   has_many :creations, class_name: "Test", foreign_key: "author_id", dependent: :destroy
 
-  validates :email, presence: true,
-                    uniqueness: true,
-                    format: { with: /.+@.+/i }
-
-  has_secure_password
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable,
+         :confirmable
 
   def tests_with_level(level)
     tests.with_level(level)
@@ -17,5 +17,13 @@ class User < ApplicationRecord
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)
+  end
+
+  def admin?
+    type == 'Admin'
+  end
+
+  def user?
+    type == 'User'
   end
 end
