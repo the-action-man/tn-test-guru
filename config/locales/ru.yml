@@ -23,6 +23,13 @@ ru:
   tests:
     index:
       header: "Доступные тесты"
+      title: "Название"
+      level: "Уровень"
+      category: "Категория"
+      quantity_of_questions: "Колличество вопросов"
+      actions: "Действия"
+    test:
+      start: 'Старт'
 
   test_passages:
     result:
@@ -30,7 +37,35 @@ ru:
 
   admin:
     tests:
-      create:
-        success: "Тест был успешно создан."
       index:
         header: "Доступные тесты (для админа)"
+        title: "Название"
+        level: "Уровень"
+        category: "Категория"
+        quantity_of_questions: "Колличество вопросов"
+        actions: "Действия"
+        add_test: "Добавить тест"
+      show:
+        header: "Test"
+        title: "Название:"
+        level: "Уровень:"
+        category: "Категория:"
+        author: "Автор:"
+        edit_test: "Редактировать тест"
+        question: "Вопрос"
+        action: "Действие"
+        add_question: "Добавить вопрос"
+        back: "Назад"
+      new:
+        header: "Новый тест"
+        back: "Назад"
+      create:
+        success: "Тест был успешно создан."
+      edit:
+        header: "Редактировать тест"
+        back: "Назад"
+      test:
+        show: 'Показать'
+        edit: 'Редактировать'
+        delete: 'Удалить'
+        are_you_sure: 'Вы уверены?'
