@@ -12,9 +12,21 @@ ru:
         level: "Уровень"
         category_id: "Категория"
 
+  shared:
+    form_errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружено %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
   tests:
     index:
       header: "Доступные тесты"
+
+  test_passages:
+    result:
+      header: "Тест '%{title}' успешно завершён!"
 
   admin:
     tests:

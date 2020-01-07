@@ -42,9 +42,19 @@ en:
       level: "Level"
       category_id: "Category"
 
+  shared:
+    form_errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
   tests:
     index:
       header: "Tricky test"
+
+  test_passages:
+    result:
+      header: "Test '%{title}' successfully finished!"
 
   admin:
     tests:

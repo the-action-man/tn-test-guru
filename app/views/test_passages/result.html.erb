@@ -1,4 +1,4 @@
-<h>'<%= @test_passage.test.title %>' was completed!</h>
+<h><%= t('.header', title: @test_passage.test.title) %></h>
 
 <p class="<%= result_message_class(@test_passage) %>">Result: <%= result_message(@test_passage) %></p>
 
