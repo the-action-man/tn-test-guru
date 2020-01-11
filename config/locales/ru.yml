@@ -2,15 +2,25 @@ ru:
   hello: "Привет мир"
 
   helpers:
-    submit:
-      test:
-        create: "Создать тест"
-        update: "Обновить тест"
     label:
       test:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+    select:
+      # Default value for :prompt => true in FormOptionsHelper
+      prompt: "Пожалуйста, выберите"
+# It is also work properly
+#    submit:
+#      test:
+#        create: "Создать тест"
+#        update: "Обновить тест"
+    # Default translation keys for submit and button FormHelper
+    submit:
+      create: 'Создать %{model}'
+      update: 'Обновить %{model}'
+      submit: 'Сохранить %{model}'
+
 
   shared:
     form_errors:

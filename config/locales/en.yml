@@ -2,15 +2,24 @@ en:
   hello: "Hello world"
 
   helpers:
-    submit:
-      test:
-        create: "Create test"
-        update: "Update test"
     label:
       test:
         title: "Title"
         level: "Level"
         category_id: "Category"
+    select:
+      # Default value for :prompt => true in FormOptionsHelper
+      prompt: "Please select"
+# It is also work properly
+#    submit:
+#      test:
+#        create: "Create test"
+#        update: "Update test"
+    # Default translation keys for submit and button FormHelper
+    submit:
+      create: 'Create %{model}'
+      update: 'Update %{model}'
+      submit: 'Save %{model}'
 
   shared:
     form_errors:
