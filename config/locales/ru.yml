@@ -1,2 +1,81 @@
 ru:
   hello: "Привет мир"
+
+  helpers:
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+    select:
+      # Default value for :prompt => true in FormOptionsHelper
+      prompt: "Пожалуйста, выберите"
+# It is also work properly
+#    submit:
+#      test:
+#        create: "Создать тест"
+#        update: "Обновить тест"
+    # Default translation keys for submit and button FormHelper
+    submit:
+      create: 'Создать %{model}'
+      update: 'Обновить %{model}'
+      submit: 'Сохранить %{model}'
+
+
+  shared:
+    form_errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружено %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+  tests:
+    index:
+      header: "Доступные тесты"
+      title: "Название"
+      level: "Уровень"
+      category: "Категория"
+      quantity_of_questions: "Колличество вопросов"
+      actions: "Действия"
+    test:
+      start: 'Старт'
+
+  test_passages:
+    result:
+      header: "Тест '%{title}' успешно завершён!"
+
+  admin:
+    tests:
+      index:
+        header: "Доступные тесты (для админа)"
+        title: "Название"
+        level: "Уровень"
+        category: "Категория"
+        quantity_of_questions: "Колличество вопросов"
+        actions: "Действия"
+        add_test: "Добавить тест"
+      show:
+        header: "Test"
+        title: "Название:"
+        level: "Уровень:"
+        category: "Категория:"
+        author: "Автор:"
+        edit_test: "Редактировать тест"
+        question: "Вопрос"
+        action: "Действие"
+        add_question: "Добавить вопрос"
+        back: "Назад"
+      new:
+        header: "Новый тест"
+        back: "Назад"
+      create:
+        success: "Тест был успешно создан."
+      edit:
+        header: "Редактировать тест"
+        back: "Назад"
+      test:
+        show: 'Показать'
+        edit: 'Редактировать'
+        delete: 'Удалить'
+        are_you_sure: 'Вы уверены?'
