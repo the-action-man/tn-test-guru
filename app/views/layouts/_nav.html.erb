@@ -1,20 +1,25 @@
 <table class="nav user">
   <tr>
-    <th><a href="<%= root_path %>">Test Guru</a></th>
+    <th><a class="badge badge-pill badge-info" href="<%= root_path %>">Test Guru</a></th>
     <% if user_signed_in? %>
+      <th>
+        Welcome, <b><%= current_user.email %></b> Guru
+      </th>
+      <% if current_user.admin? %>
         <th>
-          Welcome, <b><%= current_user.email %></b> Guru
+          <a class="badge badge-pill badge-info" href="<%= admin_tests_path %>">Admin panel</a>
         </th>
-        <th>
-          <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
-        </th>
+      <% end %>
+      <th>
+        <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+      </th>
     <% else %>
-        <th>
-          <%= link_to 'Login', new_user_session_path %>
-        </th>
-        <th>
-          <%= link_to 'Signup', new_user_registration_path %>
-        </th>
+      <th>
+        <%= link_to 'Login', new_user_session_path %>
+      </th>
+      <th>
+        <%= link_to 'Signup', new_user_registration_path %>
+      </th>
     <% end %>
   </tr>
 </table>
