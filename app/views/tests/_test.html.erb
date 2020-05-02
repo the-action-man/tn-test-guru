@@ -1,7 +1,7 @@
 <tr>
-  <td align="center"><%= test.title %></td>
-  <td align="center"><%= test_level(test) %></td>
-  <td align="center"><%= test.category.title %></td>
-  <td align="center"><%= test.questions.size %></td>
-  <td><%= button_to t('.start'), start_test_path(test) %></td>
+  <td class="text-center"><%= test.title %></td>
+  <td class="text-center"><%= test_level(test) %></td>
+  <td class="text-center"><%= test.category.title %></td>
+  <td class="text-center"><%= test.questions.size %></td>
+  <td><%= button_to t('.start'), start_test_path(test), class: "btn btn-primary" %></td>
 </tr>
