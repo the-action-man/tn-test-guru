@@ -41,6 +41,9 @@ gem 'devise', '~> 4.0'
 
 gem 'faraday'
 
+# GitHub API
+gem "octokit", "~> 4.0"
+
 #LOCALIZATION
 
 gem 'rails-i18n', '~> 5.0.0'
