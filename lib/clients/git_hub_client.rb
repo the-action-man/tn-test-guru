@@ -3,7 +3,7 @@ class GitHubClient
 
 
   # TODO: remove
-  ACCESS_TOKEN = "4b63726404ed314f93f461907c5b34fb4d16f352".freeze
+  ACCESS_TOKEN = "5e968f34ce70b9c9fc08d0b4d1f2d556962417d3".freeze
   # TODO: add
   # ACCESS_TOKEN = ENV['GITHUB_TOKEN']
 

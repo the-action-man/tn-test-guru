@@ -45,6 +45,7 @@ ru:
     result:
       header: "Тест '%{title}' успешно завершён!"
     gist:
+      success_url: "Gist добавлен и размещен здесь: %{link}"
       success: "Gist успешно добавлен!"
       failure: "Во время сохранения gist произошла ошибка!"
 

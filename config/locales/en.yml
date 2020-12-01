@@ -43,6 +43,10 @@ en:
   test_passages:
     result:
       header: "Test '%{title}' successfully finished!"
+    gist:
+      success_url: "Gist is added here: %{link}"
+      success: "Gist successfully added!"
+      failure: "Error occurs while gist saving!"
 
   admin:
     tests:
