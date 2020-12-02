@@ -33,8 +33,6 @@ class TestPassagesController < ApplicationController
   end
 
   def octokit_client
-    Octokit::Client.new(:access_token => '5e968f34ce70b9c9fc08d0b4d1f2d556962417d3')
-    # TODO: add to ENV and use
-    # ENV['GITHUB_TOKEN']
+    Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
   end
 end

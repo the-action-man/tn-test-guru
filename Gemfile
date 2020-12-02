@@ -33,6 +33,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# ENV
+
+gem 'dotenv-rails', groups: [:development, :test]
+
 # AUTH
 
 gem 'devise', '~> 4.0'
