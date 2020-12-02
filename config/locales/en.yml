@@ -47,6 +47,7 @@ en:
       success_url: "Gist is added here: %{link}"
       success: "Gist successfully added!"
       failure: "Error occurs while gist saving!"
+      description: "A question about \"%{test_title}\" from TestGuru"
 
   admin:
     tests:
