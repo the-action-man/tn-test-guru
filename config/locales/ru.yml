@@ -84,3 +84,9 @@ ru:
         edit: 'Редактировать'
         delete: 'Удалить'
         are_you_sure: 'Вы уверены?'
+    gists:
+      index:
+        header: "Список Gist'ов"
+        question: "Вопрос"
+        url: "URL"
+        user_email: "Email пользователя"

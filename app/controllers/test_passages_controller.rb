@@ -16,8 +16,9 @@ class TestPassagesController < ApplicationController
 
   def gist
     result = GistQuestionService.new(@test_passage.current_question, octokit_client).call
-    flash_options = if result.respond_to? :url
-                      { notice: t('.success_url', link: result.url) }
+    flash_options = if result.respond_to? :html_url
+                      save_new_gist(@test_passage.current_question, result.html_url)
+                      { notice: t('.success_url', link: result.html_url) }
                     elsif result.success?
                       { notice: t('.success') }
                     else
@@ -34,5 +35,9 @@ class TestPassagesController < ApplicationController
 
   def octokit_client
     Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
+  end
+
+  def save_new_gist(question, url)
+    Gist.new(url: url, user_id: current_user.id, question_id: question.id).save
   end
 end

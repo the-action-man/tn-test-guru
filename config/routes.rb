@@ -24,6 +24,7 @@ Rails.application.routes.draw do
         resources :answers, shallow: true, except: %i[index show]
       end
     end
-  end
 
+    resources :gists, only: %i[index]
+  end
 end

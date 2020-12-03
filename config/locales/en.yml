@@ -83,3 +83,9 @@ en:
         edit: 'Edit'
         delete: 'Delete'
         are_you_sure: 'Are you sure?'
+    gists:
+      index:
+        header: "Gists List"
+        question: "Question"
+        url: "URL"
+        user_email: "User's email"

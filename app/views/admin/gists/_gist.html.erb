@@ -1,0 +1,11 @@
+<tr>
+  <td class="text-center">
+    <a href="<%= admin_question_path(gist.question.id) %>">
+      <%= question_view(gist.question.body) %>
+    </a>
+  </td>
+  <td class="text-center">
+    <a href="<%= gist.url %>"><%= url_hash(gist.url) %></a>
+  </td>
+  <td class="text-center"><%= gist.user.email %></td>
+</tr>
