@@ -4,6 +4,6 @@ module GistsHelper
   end
 
   def question_view(text)
-    text[0..25]
+    text.truncate(25)
   end
 end
