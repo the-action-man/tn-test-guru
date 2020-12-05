@@ -44,6 +44,11 @@ ru:
   test_passages:
     result:
       header: "Тест '%{title}' успешно завершён!"
+    gist:
+      success_url: "Gist добавлен и размещен здесь: %{link}"
+      success: "Gist успешно добавлен!"
+      failure: "Во время сохранения gist произошла ошибка!"
+      description: "Вопрос о \"%{test_title}\" из TestGuru"
 
   admin:
     tests:
@@ -79,3 +84,9 @@ ru:
         edit: 'Редактировать'
         delete: 'Удалить'
         are_you_sure: 'Вы уверены?'
+    gists:
+      index:
+        header: "Список Gist'ов"
+        question: "Вопрос"
+        url: "URL"
+        user_email: "Email пользователя"

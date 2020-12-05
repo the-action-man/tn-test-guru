@@ -43,6 +43,11 @@ en:
   test_passages:
     result:
       header: "Test '%{title}' successfully finished!"
+    gist:
+      success_url: "Gist is added here: %{link}"
+      success: "Gist successfully added!"
+      failure: "Error occurs while gist saving!"
+      description: "A question about \"%{test_title}\" from TestGuru"
 
   admin:
     tests:
@@ -78,3 +83,9 @@ en:
         edit: 'Edit'
         delete: 'Delete'
         are_you_sure: 'Are you sure?'
+    gists:
+      index:
+        header: "Gists List"
+        question: "Question"
+        url: "URL"
+        user_email: "User's email"
