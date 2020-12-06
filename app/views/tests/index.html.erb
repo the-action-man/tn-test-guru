@@ -2,10 +2,10 @@
 
 <table class="table">
   <tr>
-    <th class="sort-by-title pointer text-center">
+    <th id="title_column_header" class="sort-by-title pointer text-center" data-sort-state="unsorted">
       <%= t('.title') %>
-      <%= octicon 'arrow-up', class: 'text-success hide' %>
-      <%= octicon 'arrow-down', class: 'text-success hide' %>
+      <%= octicon 'arrow-up', id: "octicon_title_arrow_up", class: 'text-success hide' %>
+      <%= octicon 'arrow-down', id: "octicon_title_arrow_down", class: 'text-success hide' %>
     </th>
     <th class="text-center"><%= t('.level') %></th>
     <th class="text-center"><%= t('.category') %></th>
