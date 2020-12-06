@@ -1,17 +1,19 @@
 document.addEventListener('turbolinks:load', function() {
-  var passConfirm = document.querySelector("#user_password_confirmation");
-
-  if(passConfirm) { passConfirm.addEventListener('input', verifyPasswordConfirmation); }
+  if(user_password_confirmation) enablePasswordHandler(user_password_confirmation);
 });
 
-function verifyPasswordConfirmation() {
-  var pass = document.querySelector("#user_password").value;
-  var passConfirm = document.querySelector("#user_password_confirmation").value;
-  var alert = document.querySelector('.octicon-alert');
+function enablePasswordHandler(field) {
+    field.addEventListener('input', verifyPasswordConfirmation);
+}
 
-  if (pass === passConfirm) {
-    alert.classList.add('hide');
-  } else {
-    alert.classList.remove('hide');
-  }
+function verifyPasswordConfirmation() {
+    user_password.value === user_password_confirmation.value ? hideAlertIcon() : showAlertIcon();
+}
+
+function showAlertIcon() {
+    password_confirmation_alert_icon.classList.remove('hide');
+}
+
+function hideAlertIcon() {
+    password_confirmation_alert_icon.classList.add('hide');
 }
