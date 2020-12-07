@@ -30,32 +30,14 @@ function sortRowsByTitle() {
     table.parentNode.replaceChild(sortedTable, table);
 }
 
-function compareRowsAsc(row1, row2) {
-    var testTitle1 = row1.querySelector('td').textContent;
-    var testTitle2 = row2.querySelector('td').textContent;
-
-    if (testTitle1 < testTitle2) { return -1 }
-    if (testTitle1 > testTitle2) { return 1 }
-    return  0;
-}
-
-function compareRowsDesc(row1, row2) {
-    var testTitle1 = row1.querySelector('td').textContent;
-    var testTitle2 = row2.querySelector('td').textContent;
-
-    if (testTitle1 < testTitle2) { return 1 }
-    if (testTitle1 > testTitle2) { return -1 }
-    return  0;
-}
-
 function handleSorting(sortedRows) {
     if (title_column_header.getAttribute("data-sort-state") === "desc") {
-        sortedRows.sort(compareRowsAsc);
+        sortedRows.sort((row1, row2) => row1.cells[0].innerHTML > row2.cells[0].innerHTML ? 1 : -1);
         octicon_title_arrow_up.classList.remove('hide');
         octicon_title_arrow_down.classList.add('hide');
         title_column_header.setAttribute("data-sort-state", "asc")
     } else {
-        sortedRows.sort(compareRowsDesc);
+        sortedRows.sort((row1, row2) => row1.cells[0].innerHTML < row2.cells[0].innerHTML ? 1 : -1);
         octicon_title_arrow_up.classList.add('hide');
         octicon_title_arrow_down.classList.remove('hide');
         title_column_header.setAttribute("data-sort-state", "desc")
