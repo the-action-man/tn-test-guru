@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load', function() {
-    var control = document.querySelector('.sort-by-title');
+    var control = document.querySelector('.sort-by-title-js');
 
     if(control) { control.addEventListener('click', sortRowsByTitle); }
 });
