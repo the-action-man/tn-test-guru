@@ -41,7 +41,7 @@ function createSortedTableElement (tableHeaderRow, sortedRows) {
 }
 
 function selectTableRows (table) {
-  let rows = selectAllTableRowsElements(table)
+  let rows = table.querySelectorAll('tr')
   let selectedRows = []
 
   // select all table rows except the first one which is the header
@@ -53,9 +53,5 @@ function selectTableRows (table) {
 }
 
 function selectTableHeader (table) {
-  return selectAllTableRowsElements(table)[0]
-}
-
-function selectAllTableRowsElements (table) {
-  return table.querySelectorAll('tr')
+  return table.querySelectorAll('tr')[0]
 }
