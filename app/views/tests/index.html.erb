@@ -1,15 +1,15 @@
 <h1><%= t('.header') %></h1>
 
 <table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th class="text-center"><%= t('.title') %></th>
-      <th class="text-center"><%= t('.level') %></th>
-      <th class="text-center"><%= t('.category') %></th>
-      <th class="text-center"><%= t('.quantity_of_questions') %></th>
-      <th><%= t('.actions') %></th>
-    </tr>
-  </thead>
+  <tr>
+    <th id="title_column_header" class="sort-by-title-js pointer text-center" data-sort-state="unsorted">
+      <%= t('.title') %>
+      <%= octicon 'arrow-up', id: "octicon_title_arrow_up", class: 'text-success' %>
+    </th>
+    <th class="text-center"><%= t('.level') %></th>
+    <th class="text-center"><%= t('.category') %></th>
+    <th class="text-center"><%= t('.quantity_of_questions') %></th>
+    <th><%= t('.actions') %></th>
+  </tr>
   <%= render @tests %>
 </table>
-
