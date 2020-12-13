@@ -1,5 +1,11 @@
 <h>Passing the '<%= @test_passage.test.title %>' test </h>
 <br>
+<% percent_passage = @test_passage.calc_percent_passage %>
+<div class="progress">
+  <%= content_tag :div, "#{percent_passage}%",
+                  class: %w(progress-bar progress-bar-info),
+                  style: "width: #{percent_passage}%" %>
+</div>
 <br>
 <p><%= current_question_info(@test_passage) %></p>
 <p><%= @test_passage.current_question.body %></p>
