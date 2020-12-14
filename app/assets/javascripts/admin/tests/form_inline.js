@@ -18,6 +18,8 @@ function formInlineLinkHandler(event) {
 
 function formInlineHandler(testId) {
   let link = document.querySelector('.form-inline-link[data-test-id="' + testId + '"]')
+  if (!link) return
+
   let $testTitle = $('.test-title[data-test-id="' + testId + '"]')
   let $formInline = $('.form-inline[data-test-id="' + testId + '"]')
 

@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load', function() {
-  if(user_password_confirmation) enablePasswordHandler(user_password_confirmation);
+  if(window.user_password_confirmation) enablePasswordHandler(user_password_confirmation);
 });
 
 function enablePasswordHandler(field) {
