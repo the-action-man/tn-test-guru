@@ -81,8 +81,11 @@ en:
       test:
         show: 'Show'
         edit: 'Edit'
+        rename: 'Rename'
         delete: 'Delete'
         are_you_sure: 'Are you sure?'
+      form_inline:
+        submit: "OK"
     gists:
       index:
         header: "Gists List"

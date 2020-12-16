@@ -28,7 +28,15 @@ class TestPassage < ApplicationRecord
     @correct_percent ||= calc_percent_correct_questions
   end
 
+  def calc_percent_passage
+    100 * count_passed_questions / total_questions
+  end
+
   private
+
+  def count_passed_questions
+    test.questions.order(:id).where('id < ?', current_question.id).count
+  end
 
   def set_current_question
     return unless test.present? # added to avoid err in IRB code

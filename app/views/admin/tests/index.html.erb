@@ -1,5 +1,9 @@
 <h1><%= t('.header') %></h1>
 
+<p>
+  <%= render 'shared/form_errors', resource: @test %>
+</p>
+
 <table class="table">
   <tr>
     <th id="title_column_header" class="sort-by-title-js pointer" data-sort-state="unsorted">
