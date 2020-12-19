@@ -15,19 +15,22 @@ It is awesome application to create your own tests
 
 
 # Deployment instructions
-
+```
+heroku login
+```
 ```
 heroku apps:destroy tn-test-guru
 heroku create tn-test-guru
 ```
 
-Настраиваем удаленный репозиторий на хероку
+#### Настраиваем удаленный репозиторий на хероку
 ```
 git config --list | grep remote
 git remote remove heroku
 git remote add heroku https://git.heroku.com/tn-test-guru.git
 ```
 
+#### Заливаем код на репозиторий хероку
 если деплоим НЕ мастер ветку
 ```
 git push heroku part_17_deploy_FINAL:master
@@ -36,27 +39,31 @@ git push heroku part_17_deploy_FINAL:master
 ```
 git push heroku master
 ```
+#### Выполняем миграцию
 ```
 heroku run rake db:migrate
 ```
 
-Устанавливаем переменные окружения (среды). В коде берем значения так `ENV['SMTP_USERNAME']`.
+#### Устанавливаем переменные окружения (среды). В коде берем значения так `ENV['SMTP_USERNAME']`.
 ```
 heroku config:set SMTP_USERNAME=thinknetica.test@gmail.com
 heroku config:set SMTP_PASSWORD=abcd%123
 ```
+
 ---
-Open application
+#### Open application
 ```
 heroku open
 ```
 
-Register a new first user which will be admin after database seed
+#### Register a new first user which will be admin after database seed
 ```
 thinknetica.test@gmail.com 
 123456
 ```
 ----
+
+#### Заполняем базу данных
 ```
 heroku run rake db:seed
 ```
