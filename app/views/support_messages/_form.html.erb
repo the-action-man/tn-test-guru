@@ -1,0 +1,15 @@
+<%= form_with model: @support_message, local: true do |form| %>
+  <%= render 'shared/form_errors', resource: @support_message %>
+
+  <p>
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :support_message_email %>
+  </p>
+
+  <p>
+    <%= form.label :message %>
+    <%= form.text_field :message, id: :support_message_message %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>
