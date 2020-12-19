@@ -6,6 +6,7 @@ class SupportMessagesController < ApplicationController
   def create
     @support_message = SupportMessage.new(test_params)
     if @support_message.save
+      SupportMessageMailer.with(support_message: @support_message).customer_request.deliver_later
       redirect_to root_path, notice: "The message is sent to administrator!"
     else
       render :new
