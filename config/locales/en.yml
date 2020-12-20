@@ -49,6 +49,9 @@ en:
       failure: "Error occurs while gist saving!"
       description: "A question about \"%{test_title}\" from TestGuru"
 
+  support_messages:
+    success_sent: "The message is sent to administrator!"
+
   admin:
     tests:
       index:
