@@ -48,6 +48,7 @@ heroku run rake db:migrate
 ```
 heroku config:set SMTP_USERNAME=thinknetica.test@gmail.com
 heroku config:set SMTP_PASSWORD=abcd%123
+heroku config:set GITHUB_TOKEN=XXXXXXXXXXX
 ```
 
 ---
