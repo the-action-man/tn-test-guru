@@ -7,6 +7,6 @@ class SupportMessageMailer < ApplicationMailer
   private
 
   def admin_emails
-    User.admins.pluck(:email)
+    Admin.pluck(:email)
   end
 end

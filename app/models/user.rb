@@ -12,8 +12,6 @@ class User < ApplicationRecord
          :validatable,
          :confirmable
 
-  scope :admins, -> { where(type: "Admin") }
-
   def tests_with_level(level)
     tests.with_level(level)
   end
