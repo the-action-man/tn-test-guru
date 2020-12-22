@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root to: 'tests#index'
+  root to: 'roots#root'
+  get 'root_user', to: 'tests#index'
+  get 'root_admin', to: 'admin/tests#index'
 
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
 
