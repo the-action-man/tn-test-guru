@@ -1,8 +1,10 @@
 <table class="nav nav-admin">
   <tr>
-    <th><a class="badge badge-pill badge-info" href="<%= root_path %>">Test Guru</a></th>
     <% if user_signed_in? %>
+      <th><a class="badge badge-pill badge-info" href="<%= root_path %>">Test Guru</a></th>
+      <th><a class="badge badge-pill badge-info" href="<%= tests_path %>">Test Passage</a></th>
       <th><a class="badge badge-pill badge-info" href="<%= admin_gists_path %>">Gists</a></th>
+
       <th>
         Welcome, <b><%= current_user.first_name %> <%= current_user.last_name %></b> Admin
       </th>

@@ -1,0 +1,20 @@
+<h1>Contact our Administrative Department</h1>
+<br>
+
+<%= form_with model: @support_message, local: true do |form| %>
+  <%= render 'shared/form_errors', resource: @support_message %>
+
+  <p>
+    <%= form.label :email, "Your email: " %>
+    <%= form.text_field :email, id: :support_message_email %>
+  </p>
+
+  <p>
+    <%= form.label :message, "Message: " %>
+    <%= form.text_area :message, id: :support_message_message %>
+  </p>
+
+  <p><%= form.submit 'Send' %></p>
+<% end %>
+<br>
+<%= link_to 'Back to Home Page', tests_path %>

@@ -8,13 +8,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-password = '123456'
+# password = '123456'
+# users = User.create!([
+#                          { email: 'u_01@email.org', password: password },
+#                          { email: 'u_02@email.org', password: password },
+#                          { email: 'u_03@email.org', password: password }
+#                      ])
 
-users = User.create!([
-                       { email: 'u_01@email.org', password: password },
-                       { email: 'u_02@email.org', password: password },
-                       { email: 'u_03@email.org', password: password }
-                     ])
+users = User.all
+user1 = users.first
+user1.type = "Admin"
+user1.save!
+user1.confirm
+
 categories = Category.create!([
                                 { title: 'category_01' },
                                 { title: 'category_02' },
@@ -27,7 +33,7 @@ tests = Test
     { title: 'test_02 l_2', level: 2, category: categories[0], author: users[0] },
     { title: 'test_03 l_2', level: 2, category: categories[0], author: users[0] },
     { title: 'test_04 l_1', level: 1, category: categories[1], author: users[0] },
-    { title: 'test_05 l_0', level: 1, category: categories[2], author: users[1] }
+    { title: 'test_05 l_0', level: 1, category: categories[2], author: users[0] }
   ])
 # test_passage = TestPassage
 #   .create!([

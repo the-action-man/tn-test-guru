@@ -50,6 +50,9 @@ ru:
       failure: "Во время сохранения gist произошла ошибка!"
       description: "Вопрос о \"%{test_title}\" из TestGuru"
 
+  support_messages:
+    success_sent: "Сообщение отослано администратору!"
+
   admin:
     tests:
       index:
