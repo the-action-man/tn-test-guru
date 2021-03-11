@@ -1,0 +1,17 @@
+<h1>Your Badges</h1>
+
+<table class="table">
+  <tr>
+    <th class="text-center">Image</th>
+    <th class="text-center">Quantity</th>
+  </tr>
+
+  <% @user_badges.each do |user_badge| %>
+    <tr>
+      <td>
+        <img src="<%= user_badge.badge.url %>" width="189" height="255" alt="lorem">
+      </td>
+      <td class="text-center"><%= user_badge.count %></td>
+    </tr>
+  <% end %>
+</table>

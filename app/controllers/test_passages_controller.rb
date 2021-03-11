@@ -12,7 +12,10 @@ class TestPassagesController < ApplicationController
     end
   end
 
-  def result; end
+  def result
+    @badge_service = BadgeService.new(@test_passage)
+    @badge_service.give_badges
+  end
 
   def gist
     result = GistQuestionService.new(current_user, @test_passage.current_question).call

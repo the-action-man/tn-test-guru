@@ -1,0 +1,13 @@
+<h1>Badges</h1>
+<div>
+  <a><%= link_to "Add badge", new_admin_badge_path, class: "btn btn-primary" %></a>
+</div>
+<table class="table">
+  <tr>
+    <th class="text-center">Name</th>
+    <th class="text-center">URL</th>
+    <th class="text-center">Image</th>
+    <th class="text-center">Actions</th>
+  </tr>
+  <%= render @badges %>
+</table>

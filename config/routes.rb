@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :support_messages, only: %i[new create]
+  resources :badges, only: %i[index]
 
   namespace :admin do
     resources :tests do
@@ -32,5 +33,6 @@ Rails.application.routes.draw do
     end
 
     resources :gists, only: %i[index]
+    resources :badges, except: :show
   end
 end
