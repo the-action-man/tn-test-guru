@@ -73,6 +73,7 @@ en:
         header: "Test"
         title: "Title:"
         level: "Level:"
+        timer: "Timer (minutes):"
         category: "Category:"
         author: "Author:"
         edit_test: "Edit test"
