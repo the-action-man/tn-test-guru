@@ -44,7 +44,15 @@ class BadgeService
   end
 
   def first_attempt(rule)
-    return nil if TestPassage.where(test_id: test_passage.test_id, user_id: user.id).count > 1
+    return nil if TestPassage.where(test_id: test_passage.test_id, user_id: @user.id).count > 1
+
+    badges_by_rule_id(rule.id)
+  end
+
+  def all_from_category_backend(rule)
+    test_ids = Test.ids_by_category("backend").pluck(:id)
+    test_passages = TestPassage.where(user_id: @user.id, test_id: test_ids).group(:test_id).count
+    return nil if (test_passages.keys - test_ids).size.positive?
 
     badges_by_rule_id(rule.id)
   end

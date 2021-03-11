@@ -26,4 +26,11 @@ class Test < ApplicationRecord
             .where(categories: { title: category })
             .order(title: :desc)
         end)
+  scope :ids_by_category,
+        (lambda do |category|
+          select(:id)
+              .joins(:category)
+              .where(categories: { title: category })
+              .order(title: :desc)
+        end)
 end
