@@ -7,15 +7,14 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
     if @test_passage.completed?
       @test_passage.update!(success: true) if @test_passage.passed?
-      redirect_to result_test_passage_path(@test_passage)
+      redirect_to result_test_passage_path(@test_passage, badges: give_badge_ids)
     else
       render :show
     end
   end
 
   def result
-    @badge_service = BadgeService.new(@test_passage)
-    @badge_service.give_badges
+    @badges = Badge.where(id: params[:badges])
   end
 
   def gist
@@ -34,5 +33,11 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def give_badge_ids
+    badge_service = BadgeService.new(@test_passage)
+    badge_service.give_badges
+    badge_service.badge_ids
   end
 end

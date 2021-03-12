@@ -16,6 +16,10 @@ class BadgeService
     @badges.present?
   end
 
+  def badge_ids
+    @badges.each_with_object([]) { |badge, ids| ids << badge.id }
+  end
+
   private
 
   attr_reader :test_passage, :user
