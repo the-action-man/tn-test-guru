@@ -2,8 +2,8 @@
 
 <p class="<%= result_message_class(@test_passage) %>">Result: <%= result_message(@test_passage) %></p>
 
-<% if @badge_service.give_badges? %>
-  <p><b>You are getting badges!</b></p>
+<% if @badge_service.earned_badges_exist? %>
+  <p class="earned-badges-header" ><%= t('.badges') %></p>
   <% @badge_service.badges.each do |badge| %>
     <img src="<%= badge.url %>" width="189" height="255">
   <% end %>

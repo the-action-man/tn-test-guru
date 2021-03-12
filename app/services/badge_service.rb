@@ -12,8 +12,8 @@ class BadgeService
     add_badges_to_user
   end
 
-  def give_badges?
-    @badges.size.positive?
+  def earned_badges_exist?
+    @badges.present?
   end
 
   private

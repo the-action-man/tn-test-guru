@@ -44,6 +44,7 @@ ru:
   test_passages:
     result:
       header: "Тест '%{title}' успешно завершён!"
+      badges: "Вы получили бэйджи!"
     gist:
       success_url: "Gist добавлен и размещен здесь: %{link}"
       success: "Gist успешно добавлен!"

@@ -43,6 +43,7 @@ en:
   test_passages:
     result:
       header: "Test '%{title}' successfully finished!"
+      badges: "You are getting badges!"
     gist:
       success_url: "Gist is added here: %{link}"
       success: "Gist successfully added!"
