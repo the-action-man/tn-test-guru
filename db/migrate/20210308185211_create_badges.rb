@@ -1,17 +1,10 @@
 class CreateBadges < ActiveRecord::Migration[5.2]
   def change
-    create_table :rules do |t|
-      t.string :name, null: false
-
-      t.timestamps
-    end
-
-    add_index :rules, :name, unique: true
-
     create_table :badges do |t|
       t.string :name, null: false
       t.string :url, null: false
-      t.integer :rule_id, null: false
+      t.string :rule_type, null: false
+      t.string :rule_value, null: false
 
       t.timestamps
     end

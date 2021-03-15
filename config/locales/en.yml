@@ -96,3 +96,8 @@ en:
         question: "Question"
         url: "URL"
         user_email: "User's email"
+    badges:
+      rule_type:
+        x_attempt: "Passing at the specified attempt"
+        all_from_category: "Passing all tests from specified category"
+        elementary_of_category: "Passing elementary of specified category"

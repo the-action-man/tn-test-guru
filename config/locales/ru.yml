@@ -97,3 +97,8 @@ ru:
         question: "Вопрос"
         url: "URL"
         user_email: "Email пользователя"
+    badges:
+      rule_type:
+        x_attempt: "Прохождение с указанной попытки"
+        all_from_category: "Прохождение всех тестов указанной категории"
+        elementary_of_category: "Прохождение елементарного теста указанной категории"

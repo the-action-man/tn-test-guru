@@ -12,8 +12,13 @@
   </p>
 
   <p>
-    <%= form.label :rule_id %>
-    <%= form.collection_select :rule_id, Rule.all, :id, :name, prompt: true %>
+    <%= form.label :rule_type %>
+    <%= form.select :rule_type, BadgeService.select_box_values %>
+  </p>
+
+  <p>
+    <%= form.label :rule_value %>
+    <%= form.text_field :rule_value, id: :badge_rule_value %>
   </p>
 
   <p><%= form.submit %></p>

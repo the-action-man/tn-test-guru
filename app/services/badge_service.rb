@@ -1,4 +1,18 @@
 class BadgeService
+  RULES = {
+      x_attempt: Badges::XAttempt,
+      all_from_category: Badges::AllFromCategory,
+      elementary_of_category: Badges::ElementaryOfCategory,
+  }.freeze
+
+  def self.select_box_values
+    [
+      [I18n.t('admin.badges.rule_type.x_attempt'), "x_attempt"],
+      [I18n.t('admin.badges.rule_type.all_from_category'), "all_from_category"],
+      [I18n.t('admin.badges.rule_type.elementary_of_category'), "elementary_of_category"],
+    ]
+  end
+
   attr_reader :badges
 
   def initialize(test_passage)
@@ -7,27 +21,25 @@ class BadgeService
     @user = test_passage.user
   end
 
-  def give_badges
+  def call
     collect_badges
     add_badges_to_user
-  end
-
-  def earned_badges_exist?
-    @badges.present?
-  end
-
-  def badge_ids
-    @badges.each_with_object([]) { |badge, ids| ids << badge.id }
+    badge_ids
   end
 
   private
 
   attr_reader :test_passage, :user
 
+  def badge_ids
+    @badges.each_with_object([]) { |badge, ids| ids << badge.id }
+  end
+
   def collect_badges
-    Rule.all.each do |rule|
-      badges_to_add = send(rule.name, rule)
-      @badges += badges_to_add if badges_to_add
+    Badge.find_each do |badge|
+      rule = RULES[badge.rule_type.to_sym].new(test_passage: @test_passage,
+                                               value: badge.rule_value)
+      @badges << badge if rule.satisfied?
     end
   end
 
@@ -41,42 +53,5 @@ class BadgeService
         @user.badges.push(badge)
       end
     end
-  end
-
-  def badges_by_rule_id(rule_id)
-    Badge.where(rule_id: rule_id).to_a
-  end
-
-  def first_attempt(rule)
-    return nil unless @test_passage.success
-    return nil if TestPassage.where(test_id: test_passage.test_id, user_id: @user.id).count > 1
-
-    badges_by_rule_id(rule.id)
-  end
-
-  def all_from_category_backend(rule)
-    return nil unless @test_passage.success
-
-    test_ids = Test.ids_by_category("backend").pluck(:id)
-    test_passages = TestPassage
-                        .where(user_id: @user.id, test_id: test_ids, success: true)
-                        .group(:test_id)
-                        .count
-    return nil if (test_passages.keys - test_ids).size.positive?
-
-    badges_by_rule_id(rule.id)
-  end
-
-  def elementary_of_category_backend(rule)
-    return nil unless @test_passage.success
-
-    test_ids = Test.where(level: 0).ids_by_category("backend").pluck(:id)
-    test_passages = TestPassage
-                        .where(user_id: @user.id, test_id: test_ids, success: true)
-                        .group(:test_id)
-                        .count
-    return nil if (test_passages.keys - test_ids).size.positive?
-
-    badges_by_rule_id(rule.id)
   end
 end
