@@ -13,6 +13,10 @@ class BadgeService
     ]
   end
 
+  def self.validate_values
+    RULES.each_with_object([]) { |(rule, _), array| array << rule.to_s }
+  end
+
   attr_reader :badges
 
   def initialize(test_passage)
