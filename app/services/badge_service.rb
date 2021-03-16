@@ -28,16 +28,11 @@ class BadgeService
   def call
     collect_badges
     add_badges_to_user
-    badge_ids
   end
 
   private
 
   attr_reader :test_passage, :user
-
-  def badge_ids
-    @badges.each_with_object([]) { |badge, ids| ids << badge.id }
-  end
 
   def collect_badges
     Badge.find_each do |badge|
