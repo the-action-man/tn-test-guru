@@ -51,7 +51,7 @@ class BadgeService
     @badges.each do |badge|
       user_badge = UserBadge.where(user_id: @user.id, badge_id: badge.id)&.first
       if user_badge
-        user_badge.count += 1
+        user_badge.quantity += 1
         user_badge.save!
       else
         @user.badges.push(badge)

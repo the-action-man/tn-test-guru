@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2021_03_11_230011) do
   create_table "user_badges", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "badge_id", null: false
-    t.integer "count", default: 1, null: false
+    t.integer "quantity", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["badge_id"], name: "index_user_badges_on_badge_id"
