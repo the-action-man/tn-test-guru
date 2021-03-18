@@ -8,9 +8,7 @@ module Badges
                           .where(user_id: @user.id, test_id: test_ids, success: true)
                           .group(:test_id)
                           .count
-      return false if (test_passages.keys - test_ids).size.positive?
-
-      true
+      (test_passages.keys - test_ids).size.zero?
     end
   end
 end
