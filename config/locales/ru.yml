@@ -54,6 +54,12 @@ ru:
   support_messages:
     success_sent: "Сообщение отослано администратору!"
 
+  badges:
+    index:
+      header: "Твои бейджи"
+      image: "Изображение"
+      quantity: "Количество"
+
   admin:
     tests:
       index:
@@ -98,6 +104,13 @@ ru:
         url: "URL"
         user_email: "Email пользователя"
     badges:
+      index:
+        header: "Бейджи"
+        add_badge: "Добавить бейдж"
+        name: "Название"
+        url: "URL"
+        image: "Изображение"
+        actions: "Действия"
       rule_type:
         x_attempt: "Прохождение с указанной попытки"
         all_from_category: "Прохождение всех тестов указанной категории"

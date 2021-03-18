@@ -1,9 +1,9 @@
-<h1>Your Badges</h1>
+<h1><%= t('.header') %></h1>
 
 <table class="table">
   <tr>
-    <th class="text-center">Image</th>
-    <th class="text-center">Quantity</th>
+    <th class="text-center"><%= t('.image') %></th>
+    <th class="text-center"><%= t('.quantity') %></th>
   </tr>
 
   <% @user_badges.each do |user_badge| %>
