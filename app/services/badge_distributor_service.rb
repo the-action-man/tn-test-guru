@@ -1,4 +1,4 @@
-class BadgeService
+class BadgeDistributorService
   RULES = {
       x_attempt: Badges::XAttempt,
       all_from_category: Badges::AllFromCategory,
