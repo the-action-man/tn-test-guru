@@ -32,6 +32,10 @@ class TestPassage < ApplicationRecord
     100 * count_passed_questions / total_questions
   end
 
+  def time_over?
+    created_at + test.timer.minutes < Time.now
+  end
+
   private
 
   def count_passed_questions
