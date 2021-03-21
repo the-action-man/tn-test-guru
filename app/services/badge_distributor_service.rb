@@ -5,18 +5,6 @@ class BadgeDistributorService
       elementary_of_category: Badges::ElementaryOfCategory,
   }.freeze
 
-  def self.select_box_values
-    [
-      [I18n.t('admin.badges.rule_type.x_attempt'), "x_attempt"],
-      [I18n.t('admin.badges.rule_type.all_from_category'), "all_from_category"],
-      [I18n.t('admin.badges.rule_type.elementary_of_category'), "elementary_of_category"],
-    ]
-  end
-
-  def self.validate_values
-    RULES.each_with_object([]) { |(rule, _), array| array << rule.to_s }
-  end
-
   attr_reader :badges
 
   def initialize(test_passage)
