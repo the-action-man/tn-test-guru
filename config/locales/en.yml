@@ -43,6 +43,7 @@ en:
   test_passages:
     result:
       header: "Test '%{title}' successfully finished!"
+      badges: "You are getting badges!"
     gist:
       success_url: "Gist is added here: %{link}"
       success: "Gist successfully added!"
@@ -51,6 +52,12 @@ en:
 
   support_messages:
     success_sent: "The message is sent to administrator!"
+
+  badges:
+    index:
+      header: "Your badges"
+      image: "Image"
+      quantity: "Quantity"
 
   admin:
     tests:
@@ -95,3 +102,15 @@ en:
         question: "Question"
         url: "URL"
         user_email: "User's email"
+    badges:
+      index:
+        header: "Badges"
+        add_badge: "Add badge"
+        name: "Name"
+        url: "URL"
+        image: "Image"
+        actions: "Actions"
+      rule_type:
+        x_attempt: "Passing at the specified attempt"
+        all_from_category: "Passing all tests from specified category"
+        elementary_of_category: "Passing elementary of specified category"

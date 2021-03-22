@@ -1,0 +1,15 @@
+<tr>
+  <td class="text-center"><%= badge.name %></td>
+  <td class="text-center"><%= badge.url %></td>
+  <td>
+    <img src="<%= badge.url %>" width="189" height="255">
+  </td>
+  <td class="text-center">
+    <%= link_to "Edit", edit_admin_badge_path(badge.id), class: "btn btn-secondary" %>
+    <%= link_to 'Delete',
+                admin_badge_path(badge),
+                method: :delete,
+                data: {confirm: 'Are you sure?'},
+                class: "btn btn-secondary" %>
+  </td>
+</tr>

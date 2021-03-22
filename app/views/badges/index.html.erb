@@ -1,0 +1,17 @@
+<h1><%= t('.header') %></h1>
+
+<table class="table">
+  <tr>
+    <th class="text-center"><%= t('.image') %></th>
+    <th class="text-center"><%= t('.quantity') %></th>
+  </tr>
+
+  <% @user_badges.each do |user_badge| %>
+    <tr>
+      <td>
+        <img src="<%= user_badge.badge.url %>" width="189" height="255" alt="lorem">
+      </td>
+      <td class="text-center"><%= user_badge.quantity %></td>
+    </tr>
+  <% end %>
+</table>

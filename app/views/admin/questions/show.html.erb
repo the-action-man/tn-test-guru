@@ -15,7 +15,7 @@
   <%= render @question.answers %>
 </table>
 <br>
-<%= link_to 'Add answer', new_admin_question_answer_path(@question.test) %>
+<%= link_to 'Add answer', new_admin_question_answer_path(@question) %>
 <br>
 <br>
 <%= link_to 'Back', admin_test_path(@question.test) %>

@@ -19,11 +19,18 @@ class Test < ApplicationRecord
   scope :easy_level, -> { with_level(EASY_LEVEL) }
   scope :middle_level, -> { with_level(MIDDLE_LEVEL) }
   scope :upper_level, -> { with_level(UPPER_LEVEL) }
-  scope :titles_by_category,
-        (lambda do |category|
-          select(:title)
-            .joins(:category)
-            .where(categories: { title: category })
-            .order(title: :desc)
-        end)
+
+  def self.titles_by_category(category)
+    select(:title)
+        .joins(:category)
+        .where(categories: { title: category })
+        .order(title: :desc)
+  end
+
+  def self.ids_by_category(category)
+    select(:id)
+        .joins(:category)
+        .where(categories: { title: category })
+        .order(title: :desc)
+  end
 end

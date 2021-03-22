@@ -3,6 +3,7 @@
     <th><a class="badge badge-pill badge-info" href="<%= root_path %>">Test Guru</a></th>
     <% if user_signed_in? %>
       <th><a class="badge badge-pill badge-info" href="<%= new_support_message_path %>">Contact</a></th>
+      <th><a class="badge badge-pill badge-info" href="<%= badges_path %>">Badges</a></th>
       <th>
         Welcome, <b><%= current_user.email %></b> Guru
       </th>
