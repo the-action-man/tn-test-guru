@@ -36,6 +36,10 @@ class TestPassage < ApplicationRecord
     created_at + test.timer.minutes < Time.now
   end
 
+  def finish_timestamp
+    (created_at + test.timer.minutes).strftime("%FT%T")
+  end
+
   private
 
   def count_passed_questions
