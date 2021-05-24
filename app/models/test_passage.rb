@@ -33,7 +33,7 @@ class TestPassage < ApplicationRecord
   end
 
   def time_over?
-    created_at + test.timer.minutes < Time.now
+    created_at + test.timer.minutes < Time.current
   end
 
   def finish_timestamp
