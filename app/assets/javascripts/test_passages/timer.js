@@ -34,6 +34,5 @@ function timerHandler(countdown, passage_finish) {
 }
 
 function redirectionHandler() {
-  current_test_passage_id = window.location.href.split("/").pop();
-  window.location.replace("/test_passages/" + current_test_passage_id + "/result");
+  window.next.click();
 }

@@ -22,7 +22,7 @@
   <% end %>
 
   <p><%= link_to 'Gist question', gist_test_passage_path(@test_passage), method: :post %></p>
-  <p><%= form.submit 'Next' %></p>
+  <p><%= form.submit 'Next', id: "next" %></p>
 <% end %>
 <br>
 <%= link_to 'Back to list of tests', tests_path %>
