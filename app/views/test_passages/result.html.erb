@@ -1,6 +1,6 @@
 <h><%= t('.header', title: @test_passage.test.title) %></h>
 
-<% if @test_passage.time_over? %>
+<% if @test_passage.time_elapsed? %>
   <p>Time over!</p>
 <% end %>
 
