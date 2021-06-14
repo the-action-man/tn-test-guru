@@ -73,6 +73,7 @@ ru:
       show:
         header: "Test"
         title: "Название:"
+        timer: "Таймер (мин.):"
         level: "Уровень:"
         category: "Категория:"
         author: "Автор:"

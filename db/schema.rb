@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_11_230011) do
+ActiveRecord::Schema.define(version: 2021_06_13_135155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2021_03_11_230011) do
     t.integer "current_question_id"
     t.integer "correct_questions", default: 0, null: false
     t.boolean "success", default: false, null: false
+    t.boolean "time_elapsed", default: false, null: false
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
@@ -84,6 +85,7 @@ ActiveRecord::Schema.define(version: 2021_03_11_230011) do
     t.integer "level", default: 0
     t.integer "category_id"
     t.integer "author_id", null: false
+    t.integer "timer", default: 1, null: false
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title", "level"], name: "index_tests_on_title_and_level"

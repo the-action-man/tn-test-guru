@@ -1,5 +1,9 @@
 <h><%= t('.header', title: @test_passage.test.title) %></h>
 
+<% if @test_passage.time_elapsed? %>
+  <p>Time over!</p>
+<% end %>
+
 <p class="<%= result_message_class(@test_passage) %>">Result: <%= result_message(@test_passage) %></p>
 
 <%= link_to 'Back to list of tests', tests_path %>

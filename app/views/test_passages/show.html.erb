@@ -7,6 +7,9 @@
                   style: "width: #{percent_passage}%" %>
 </div>
 <br>
+<p>Timer: <span id="countdown"></span></p>
+<div id="passage_finish" class="hide"><%= @test_passage.finish_timestamp %></div>
+<br>
 <p><%= current_question_info(@test_passage) %></p>
 <p><%= @test_passage.current_question.body %></p>
 <br>
@@ -19,7 +22,7 @@
   <% end %>
 
   <p><%= link_to 'Gist question', gist_test_passage_path(@test_passage), method: :post %></p>
-  <p><%= form.submit 'Next' %></p>
+  <p><%= form.submit 'Next', id: "next" %></p>
 <% end %>
 <br>
 <%= link_to 'Back to list of tests', tests_path %>

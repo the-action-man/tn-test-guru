@@ -8,11 +8,15 @@ class TestPassage < ApplicationRecord
   before_validation :set_current_question
 
   def completed?
-    current_question.nil?
+    time_elapsed || current_question.nil?
   end
 
   def accept!(answer_ids)
-    self.correct_questions += 1 if correct_answer?(answer_ids)
+    if time_over?
+      self.time_elapsed = true
+    else
+      self.correct_questions += 1 if correct_answer?(answer_ids)
+    end
     save!
   end
 
@@ -30,6 +34,14 @@ class TestPassage < ApplicationRecord
 
   def calc_percent_passage
     100 * count_passed_questions / total_questions
+  end
+
+  def time_over?
+    created_at + test.timer.minutes < Time.current
+  end
+
+  def finish_timestamp
+    (created_at + test.timer.minutes).strftime("%FT%T")
   end
 
   private
